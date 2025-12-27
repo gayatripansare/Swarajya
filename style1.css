@@ -1,4 +1,3 @@
-
 :root {
     /* Color Palette */
     --primary-color: #10b981;       /* Fresh Emerald Green */
@@ -45,7 +44,10 @@ a {
 ul {
     list-style: none;
 }
-/*head ani navigation sathi*/
+
+/* =========================================
+   1. HEADER & NAVIGATION
+   ========================================= */
 .main-header {
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
@@ -91,7 +93,9 @@ ul {
     color: var(--primary-color);
 }
 
-
+/* =========================================
+   2. HERO SECTION
+   ========================================= */
 .hero-section {
     padding: 4rem 20px;
     background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%);
@@ -149,22 +153,24 @@ ul {
 .hero-visual {
     width: 100%;
     height: 350px;
-    background-color: #d1fae5; /* Placeholder color */
+    background-color: #d1fae5;
     border-radius: 20px;
-    background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80'); /* Example Food/Tech image */
+    background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80');
     background-size: cover;
     background-position: center;
     box-shadow: var(--shadow-lg);
 }
 
-
+/* =========================================
+   3. ANALYZER SECTION
+   ========================================= */
 .analyzer-section {
     padding: 4rem 20px;
     background-color: var(--bg-light);
 }
 
-/* Note: Targeting .analyzer-conatiner based on your HTML typo */
-.analyzer-conatiner { 
+/* FIXED: Changed from .analyzer-conatiner to .analyzer-container */
+.analyzer-container { 
     max-width: 800px;
     margin: 0 auto;
     background: var(--white);
@@ -181,6 +187,18 @@ ul {
 .section-title {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* =========================================
+   4. INPUT CONTAINER
+   ========================================= */
+.input-container {
+    margin-bottom: 2rem;
 }
 
 /* Input Tabs */
@@ -200,13 +218,13 @@ ul {
     color: var(--text-light);
     cursor: pointer;
     border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
 }
 
 .tab-button:hover {
     color: var(--primary-color);
 }
 
-/* You will need JS to toggle this class */
 .tab-button.active { 
     color: var(--primary-color);
     border-bottom-color: var(--primary-color);
@@ -214,42 +232,178 @@ ul {
 
 /* Input Panels */
 .input-panel {
-    display: none; /* Hidden by default */
+    display: none;
     animation: fadeIn 0.3s ease-in;
 }
 
 .input-panel.active {
-    display: block; /* Shown when active */
+    display: block;
 }
 
-/* Upload Area */
+/* =========================================
+   5. DUAL UPLOAD SYSTEM (NEW)
+   ========================================= */
+
+/* Upload Area Container */
 .upload-area {
+    width: 100%;
+}
+
+/* Upload Option Styling */
+.upload-option {
+    margin-bottom: 1.5rem;
+}
+
+.upload-label {
+    display: block;
     border: 2px dashed #d1d5db;
     border-radius: var(--border-radius);
-    padding: 3rem;
+    padding: 2rem;
     text-align: center;
     cursor: pointer;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
+    background-color: var(--white);
 }
 
-.upload-area:hover {
-    border-color: var(--primary-color);
-    background-color: #ecfdf5;
+.upload-label:hover {
+    border-color: var(--accent-color);
+    background-color: #eff6ff;
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 .upload-text {
     font-weight: 600;
     color: var(--text-dark);
+    margin-bottom: 0.5rem;
 }
 
 .upload-hint {
     font-size: 0.875rem;
     color: var(--text-light);
-    margin-top: 0.5rem;
 }
 
-/* Text Area */
-.ingradient-textarea {
+/* Divider Between Upload Options */
+.upload-divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.upload-divider::before,
+.upload-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 42%;
+    height: 1px;
+    background: #d1d5db;
+}
+
+.upload-divider::before {
+    left: 0;
+}
+
+.upload-divider::after {
+    right: 0;
+}
+
+.upload-divider span {
+    background: var(--white);
+    padding: 0 1rem;
+    color: var(--text-light);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Camera Option Styling */
+.camera-option {
+    margin-bottom: 1.5rem;
+}
+
+.camera-label {
+    display: block;
+    padding: 2rem;
+    border: 2px dashed rgba(16, 185, 129, 0.4);
+    border-radius: var(--border-radius);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.camera-label:hover {
+    border-color: var(--primary-color);
+    background: rgba(16, 185, 129, 0.1);
+    transform: scale(1.02);
+}
+
+.camera-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.camera-text {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.camera-hint {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Image Preview */
+.image-preview {
+    display: none;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    background: var(--bg-light);
+}
+
+.image-preview.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Hide file inputs */
+.file-input {
+    display: none;
+}
+
+/* =========================================
+   6. TEXT INPUT AREA
+   ========================================= */
+.text-input-area {
+    width: 100%;
+}
+
+.input-label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+/* FIXED: Changed from .ingradient-textarea to .ingredient-textarea */
+.ingredient-textarea {
     width: 100%;
     padding: 1rem;
     border: 1px solid #d1d5db;
@@ -257,22 +411,26 @@ ul {
     font-family: inherit;
     font-size: 1rem;
     resize: vertical;
+    transition: all 0.3s ease;
 }
 
-.ingradient-textarea:focus {
+.ingredient-textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
-/* Analyze Button */
-.action-conatiner {
+/* =========================================
+   7. ANALYZE BUTTON
+   ========================================= */
+/* FIXED: Changed from .action-conatiner to .action-container */
+.action-container {
     margin-top: 2rem;
     text-align: center;
 }
 
-/* Typo in HTML class targeted here */
-.anlyze-button {
+/* FIXED: Changed from .anlyze-button to .analyze-button */
+.analyze-button {
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     color: var(--white);
     border: none;
@@ -290,24 +448,38 @@ ul {
     align-items: center;
 }
 
-.anlyze-button:hover {
+.analyze-button:hover {
     transform: scale(1.02);
     box-shadow: var(--shadow-lg);
 }
 
+.button-text {
+    font-size: 1.125rem;
+}
+
+.button-icon {
+    font-size: 1.25rem;
+}
+
 /* =========================================
-   5. Loading State
+   8. LOADING STATE
    ========================================= */
-/* Typo in HTML class targeted here */
-.loding-conainer {
-    display: none; /* Hidden initially */
+/* FIXED: Changed from .loding-conainer to .loading-container */
+.loading-container {
+    display: none;
     text-align: center;
     padding: 3rem 0;
 }
 
-.loding-spinner {
-    width: 40px;
-    height: 40px;
+.loading-container.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+/* FIXED: Changed from .loding-spinner to .loading-spinner */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
     border: 4px solid #e5e7eb;
     border-top: 4px solid var(--primary-color);
     border-radius: 50%;
@@ -323,17 +495,28 @@ ul {
 .loading-text {
     font-weight: 600;
     color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.loading-subtext {
+    color: var(--text-light);
+    font-size: 0.9rem;
 }
 
 /* =========================================
-   6. Results Section
+   9. RESULTS SECTION
    ========================================= */
-/* Typo in HTML class targeted here */
-.sesults-conatiner {
-    display: none; /* Hidden until results come back */
+/* FIXED: Changed from .sesults-conatiner to .results-container */
+.results-container {
+    display: none;
     margin-top: 3rem;
     border-top: 1px solid #e5e7eb;
     padding-top: 2rem;
+}
+
+.results-container.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
 }
 
 .results-header {
@@ -343,8 +526,23 @@ ul {
     margin-bottom: 2rem;
 }
 
+.results-title {
+    font-size: 1.75rem;
+    color: var(--text-dark);
+}
+
+.confidence-badge {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Intent Card */
 .intent-card {
-    background: #eff6ff; /* Light blue bg */
+    background: #eff6ff;
     padding: 1.5rem;
     border-radius: var(--border-radius);
     border-left: 5px solid var(--accent-color);
@@ -354,21 +552,49 @@ ul {
 .card-title {
     margin-bottom: 1rem;
     color: var(--text-dark);
+    font-size: 1.25rem;
 }
 
-/* Key Findings Grid */
-.finding-section {
+.intent-content {
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+/* Key Findings Section */
+/* FIXED: Changed from .finding-section to .findings-section */
+.findings-section {
     margin-bottom: 2rem;
 }
 
-.finding\=grid { /* Escaping the = sign from your HTML class name */
+.section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+/* FIXED: Changed from .finding=grid to .findings-grid */
+.findings-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
 }
 
+/* Analysis Section */
+.analysis-section {
+    margin-bottom: 2rem;
+}
+
+.analysis-content {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
 /* Uncertainty Card */
-.uncertainly-card {
+/* FIXED: Changed from .uncertainly-card to .uncertainty-card */
+.uncertainty-card {
     background-color: var(--warning-bg);
     border: 1px solid #fcd34d;
     padding: 1.5rem;
@@ -376,12 +602,34 @@ ul {
     margin-bottom: 2rem;
 }
 
+/* FIXED: Changed from .uncertainly-content to .uncertainty-content */
+.uncertainty-content {
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+/* Recommendations Section */
+/* FIXED: Changed from .recommandation-section to .recommendations-section */
+.recommendations-section {
+    margin-bottom: 2rem;
+}
+
+/* FIXED: Changed from .recommandation-content to .recommendations-content */
+.recommendations-content {
+    background: #ecfdf5;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+}
+
 /* Action Buttons */
-.result-action {
+/* FIXED: Changed from .result-action to .result-actions */
+.result-actions {
     display: flex;
     gap: 1rem;
     justify-content: center;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .action-btn {
@@ -390,6 +638,9 @@ ul {
     font-weight: 600;
     cursor: pointer;
     border: none;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 200px;
 }
 
 .action-btn.primary {
@@ -397,21 +648,33 @@ ul {
     color: var(--white);
 }
 
-.action-btn.secoundary {
+.action-btn.primary:hover {
+    background-color: #111827;
+    transform: translateY(-2px);
+}
+
+/* FIXED: Changed from .secoundary to .secondary */
+.action-btn.secondary {
     background-color: var(--white);
-    border: 1px solid #d1d5db;
+    border: 2px solid #d1d5db;
     color: var(--text-dark);
 }
 
+.action-btn.secondary:hover {
+    background-color: var(--bg-light);
+    border-color: var(--text-dark);
+}
+
 /* =========================================
-   7. About Section
+   10. ABOUT SECTION
    ========================================= */
 .about-section {
     padding: 5rem 20px;
     background-color: var(--white);
 }
 
-.about-conatiner {
+/* FIXED: Changed from .about-conatiner to .about-container */
+.about-container {
     max-width: var(--max-width);
     margin: 0 auto;
     text-align: center;
@@ -420,12 +683,14 @@ ul {
 .about-title {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: var(--text-dark);
 }
 
 .about-description {
     max-width: 600px;
     margin: 0 auto 4rem;
     color: var(--text-light);
+    font-size: 1.125rem;
 }
 
 .features-grid {
@@ -434,7 +699,8 @@ ul {
     gap: 2rem;
 }
 
-.features-card {
+/* FIXED: Changed from .features-card to .feature-card */
+.feature-card {
     padding: 2rem;
     border-radius: var(--border-radius);
     background: var(--white);
@@ -443,23 +709,32 @@ ul {
     transition: transform 0.3s ease;
 }
 
-.features-card:hover {
+.feature-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
 }
 
-.features-icon {
+/* FIXED: Changed from .features-icon to .feature-icon */
+.feature-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.features-titel {
+/* FIXED: Changed from .features-titel to .feature-title */
+.feature-title {
     margin-bottom: 1rem;
     color: var(--text-dark);
+    font-size: 1.5rem;
+}
+
+/* FIXED: Changed from .features-description to .feature-description */
+.feature-description {
+    color: var(--text-light);
+    line-height: 1.8;
 }
 
 /* =========================================
-   8. Footer
+   11. FOOTER
    ========================================= */
 .main-footer {
     background-color: var(--text-dark);
@@ -486,12 +761,33 @@ ul {
     margin-bottom: 0.5rem;
 }
 
+.footer-brand p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.footer-links h4,
+.footer-info h4 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
 .footer-links ul li {
     margin-bottom: 0.5rem;
 }
 
+.footer-links a {
+    color: #9ca3af;
+}
+
 .footer-links a:hover {
     color: var(--primary-color);
+}
+
+.footer-info p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
 }
 
 .footer-bottom {
@@ -503,7 +799,7 @@ ul {
 }
 
 /* =========================================
-   9. Mobile Responsiveness
+   12. MOBILE RESPONSIVENESS
    ========================================= */
 @media (max-width: 768px) {
     .hero-container {
@@ -516,11 +812,16 @@ ul {
         font-size: 2.25rem;
     }
     
+    .hero-description {
+        font-size: 1rem;
+    }
+    
     .nav-menu {
-        display: none; /* Needs a JS hamburger menu implementation */
+        gap: 1rem;
+        font-size: 0.9rem;
     }
 
-    .analyzer-conatiner {
+    .analyzer-container {
         padding: 1.5rem;
     }
     
@@ -529,10 +830,45 @@ ul {
         align-items: flex-start;
         gap: 1rem;
     }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+
+    .upload-divider::before,
+    .upload-divider::after {
+        width: 40%;
+    }
 }
 
-/* Animation Utilities */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* =========================================
+   13. ANIMATION UTILITIES
+   ========================================= */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }

@@ -3,211 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI-native ingredient analyzer">
-    <title>Intellifood - AI Ingredient Analyzer</title>
-     <link rel="stylesheet" href="style1.css">
+    <meta name="description" content="AI-native ingredient analyzer for understanding food ingredients">
+    <title>IntelliFood - AI Ingredient Analyzer</title>
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
     
-    <!-- Header section-->
-
+    <!-- HEADER SECTION -->
     <header class="main-header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <h1>Intellifood</h1>
+                    <h1>IntelliFood</h1>
                     <span class="tagline">Your AI Ingredient Co-Pilot</span>
-
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#analyzer" class="nav-link">Analyzer</a></li>
-                    <li><a href="#about"class="nav-link">About</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    <!--Here section-->
-    <section id="home"  class="hero-section">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
         <div class="hero-container">
             <div class="hero-content">
-                <h2 class="hero-title">Understand Your Food Ingredients Instant</h2>
-                <p class="hero-description">No More Confustion. No complex labels. Just Clear, Honest insights powered byAI that understand what matter to you.</p>
-                <a heaf="#analyzer" class="cta-button">Start Analzing</a>
+                <h2 class="hero-title">Understand Your Food Ingredients Instantly</h2>
+                <p class="hero-description">
+                    No more confusion. No complex labels. Just clear, honest insights 
+                    powered by AI that understands what matters to you.
+                </p>
+                <a href="#analyzer" class="cta-button">Start Analyzing</a>
             </div>
             <div class="hero-image">
                 <div class="hero-visual">
-                    <!--add image inside this Div block -->
+                    <!-- Decorative visual element -->
                 </div>
             </div>
-            
         </div>
     </section>
-    <!--Anylzer section-->
+
+    <!-- ANALYZER SECTION -->
     <section id="analyzer" class="analyzer-section">
-        <div class="analyzer-conatiner">
+        <div class="analyzer-container">
+            
+            <!-- Section Header -->
             <div class="section-header">
-                <h2 class="section-title">Analyzer Ingredients</h2>
+                <h2 class="section-title">Analyze Ingredients</h2>
                 <p class="section-subtitle">Upload an image or paste ingredient text</p>
             </div>
 
-            <!--Input methods-->
+            <!-- Input Container -->
             <div class="input-container">
+                
+                <!-- Input Tabs -->
                 <div class="input-tabs">
-                    <button class="tab-button" data-tab="image">
-                        <!--User will upload here Image-->
+                    <button class="tab-button active" data-tab="image">
                         📷 Upload Image
                     </button>
                     <button class="tab-button" data-tab="text">
-                        <!-- User will type here text-->
-                         📝 Paste Text
+                        📝 Paste Text
                     </button>
-
                 </div>
-                <!--Image panel Upload section-->
+
+                <!-- IMAGE PANEL - WITH DUAL UPLOAD OPTIONS -->
                 <div class="input-panel active" id="image-panel">
                     <div class="upload-area">
-                        <input type="file" id="image-upload" accept="image/*" class="file-input" hidden>
-                        <label for="image-upload" class="upload-label">
-                            <p class="upload-text">Click or drag to upload ingredient label</p>
-                            <p class="upload-hint">Supports: JPG,PNG</p>
-                        </label>
+                        
+                        <!-- Option 1: Upload from Gallery/Files -->
+                        <div class="upload-option">
+                            <input 
+                                type="file" 
+                                id="image-upload" 
+                                accept="image/*" 
+                                class="file-input" 
+                                hidden
+                            >
+                            <label for="image-upload" class="upload-label">
+                                <div class="upload-icon">📁</div>
+                                <p class="upload-text">Click or drag to upload from gallery</p>
+                                <p class="upload-hint">Supports: JPG, PNG, HEIC</p>
+                            </label>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="upload-divider">
+                            <span>OR</span>
+                        </div>
+
+                        <!-- Option 2: Take Photo with Camera -->
+                        <div class="camera-option">
+                            <input 
+                                type="file" 
+                                id="camera-capture" 
+                                accept="image/*" 
+                                capture="environment"
+                                class="file-input" 
+                                hidden
+                            >
+                            <label for="camera-capture" class="camera-label">
+                                <div class="camera-icon">📸</div>
+                                <p class="camera-text">Take a photo with camera</p>
+                                <p class="camera-hint">Best for scanning ingredient labels</p>
+                            </label>
+                        </div>
+
+                        <!-- Image Preview (shared for both methods) -->
                         <div class="image-preview" id="image-preview">
-                            <!--Image preview will see here for user-->
+                            <!-- Image preview will appear here -->
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--Imagae input panel-->
 
-            <div class="input-panel" id="text-panel">
-                <div class="text-input-area">
-                    <label for="ingredient-text" class="input-label">
-                        Paste Ingredient list:
-                    </label>
-                    <textarea id="ingradient-text"
-                    class="ingradient-textarea"
-                    rows="8"
-                    placeholder="Example:Water, Sugar, Citric acid like this!"></textarea>
-
+                <!-- TEXT INPUT PANEL -->
+                <div class="input-panel" id="text-panel">
+                    <div class="text-input-area">
+                        <label for="ingredient-text" class="input-label">
+                            Paste Ingredient List:
+                        </label>
+                        <textarea 
+                            id="ingredient-text"
+                            class="ingredient-textarea"
+                            rows="8"
+                            placeholder="Example: Water, Sugar, Citric Acid, Natural Flavors, Sodium Benzoate (Preservative), Yellow 5, Red 40..."></textarea>
+                    </div>
                 </div>
+
+                <!-- Analyze Button -->
+                <div class="action-container">
+                    <button class="analyze-button" id="analyze-btn">
+                        <span class="button-text">Analyze Ingredients</span>
+                        <span class="button-icon">🔍</span>
+                    </button>
+                </div>
+
             </div>
 
-            <!--Alalyze button Struture-->
-            <div class="action-conatiner">
-                <button class="anlyze-button" id="analyze-btn">
-                    <span class="button-text">Analyze Ingredeints</span>
-                    <span class="button-icon">Click on This to Analyze!</span>
-                </button>
+            <!-- LOADING STATE -->
+            <div class="loading-container" id="loading-state">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">AI is analyzing ingredients, please wait...</p>
+                <p class="loading-subtext">Understanding what matters to you</p>
             </div>
 
-            <!--Loding state-->
-            <div class="loding-conainer" id="loading-state">
-                <div class="loding-spinner"></div>
-                    <p class="loading-text"> AI is analyzing ingredient plase wait...</p>
-                    <p class="loading-subtext"> Understanding what matters to you</p>
-            </div>
-
-            <!--Result display section-->
-            <div class="sesults-conatiner" id="results-section">
+            <!-- RESULTS SECTION -->
+            <div class="results-container" id="results-section">
+                
+                <!-- Results Header -->
                 <div class="results-header">
                     <h3 class="results-title">AI Insights</h3>
                     <span class="confidence-badge" id="confidence-badge">
-                        <!--Show good , bad like this-->
+                        <!-- Confidence level will be shown here -->
                     </span>
                 </div>
 
+                <!-- Intent Detection Card -->
                 <div class="intent-card">
                     <h4 class="card-title">🎯 What I Think You Care About</h4>
                     <div class="intent-content" id="intent-content">
-                        <!--AI inteferred intent will apper here-->
-                    </div>
-                </div>
-                <!--Key fining-->
-                <div class="finding-section">
-                    <h4 class="section-heading">Key Finding</h4>
-                    <div class="finding=grid" id="finding-grid">
-                        <!--cards will apper hereadd animation for this-->
+                        <!-- AI inferred intent will appear here -->
                     </div>
                 </div>
 
-                <!--Detailed anlysis -->
+                <!-- Key Findings -->
+                <div class="findings-section">
+                    <h4 class="section-heading">📊 Key Findings</h4>
+                    <div class="findings-grid" id="findings-grid">
+                        <!-- Finding cards will appear here -->
+                    </div>
+                </div>
+
+                <!-- Detailed Analysis -->
                 <div class="analysis-section">
-                    <h4 class="section-handing">Detailed Analaysis</h4>
-                    <!--Deatked anlayss of In gredinet-->
+                    <h4 class="section-heading">🔬 Detailed Analysis</h4>
+                    <div class="analysis-content" id="analysis-content">
+                        <!-- Detailed ingredient analysis will appear here -->
+                    </div>
                 </div>
-            </div>
-            <!--Uncertainly section-->
-            <div class="uncertainly-card">
-                <h4 class="card-title">⚠️ What We're Not Sure About</h4>
-                <div class="uncertainly-content">
-                <!--Honest tell the user We are unable to do this-->
-                </div>
-            </div>
-            <!--Recomandation-->
-            <div class="recommandation-section">
-                <h4 class="section-heading">Recommendations</h4>
-                <div class="recommandation-content" id="recommandation-content">
-                    <!--Recommaneation wil see here-->
-                </div>
-            </div>
 
-            <!--Action button-->
-            <div class="result-action">
-                <button class="action-btn secoundary" id="new-anlasis-btn">Analyze Another Product</button>
-                <button class="action-btn primary" id="save-btn">Save Results</button>
+                <!-- Uncertainty Section -->
+                <div class="uncertainty-card">
+                    <h4 class="card-title">⚠️ What We're Not Sure About</h4>
+                    <div class="uncertainty-content" id="uncertainty-content">
+                        <!-- Honest uncertainty communication -->
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="recommendations-section">
+                    <h4 class="section-heading">💡 Recommendations</h4>
+                    <div class="recommendations-content" id="recommendations-content">
+                        <!-- AI recommendations will appear here -->
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="result-actions">
+                    <button class="action-btn secondary" id="new-analysis-btn">
+                        Analyze Another Product
+                    </button>
+                    <button class="action-btn primary" id="save-btn">
+                        Save Results
+                    </button>
+                </div>
+
             </div>
 
         </div>
     </section>
 
-    <!--Abour section -->
+    <!-- ABOUT SECTION -->
     <section id="about" class="about-section">
-        <div class="about-conatiner">
+        <div class="about-container">
             <div class="about-content">
-                <h2 class="about-title"> how Intellifood works</h2>
+                <h2 class="about-title">How IntelliFood Works</h2>
                 <p class="about-description">
-                     IntelliFood is an AI-native co-pilot that helps you understand 
+                    IntelliFood is an AI-native co-pilot that helps you understand 
                     food ingredients without the hassle of manual research.
                 </p>
 
                 <div class="features-grid">
-                    <div class="features-card">
-                        <div class="features-icon">🧠</div>
-                        <h3 class="features-titel">Intelligent Analysis</h3>
-                        <p class="features-description">
+                    
+                    <!-- Feature 1 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3 class="feature-title">Intelligent Analysis</h3>
+                        <p class="feature-description">
                             Our AI infers what matters to you based on the ingredients, 
                             without requiring forms or filters.
                         </p>
                     </div>
-                    <!--Feature 2-->
-                    
-                    <div class="features-card">
-                        <div class="features-icon">💬</div>
-                        <h3 class="features-titel">Clear Explanation</h3>
-                        <p class="features-description">
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3 class="feature-title">Clear Explanations</h3>
+                        <p class="feature-description">
                             Get reasoning-driven insights that explain why ingredients 
                             matter, not just raw data dumps.
                         </p>
                     </div>
-                    <!--Feature 3-->
-                    
-                    <div class="features-card">
-                        <div class="features-icon"></div>
-                        <h3 class="features-titel">Honest and Transparent</h3>
-                        <p class="features-description">
-                             We communicate uncertainty clearly and never overstate 
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <h3 class="feature-title">Honest & Transparent</h3>
+                        <p class="feature-description">
+                            We communicate uncertainty clearly and never overstate 
                             what we know about ingredients.
                         </p>
                     </div>
 
-                    
                 </div>
             </div>
         </div>
     </section>
 
-    <!--Footer-->
+    <!-- FOOTER -->
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-content">
@@ -223,11 +277,20 @@
                         <li><a href="#about">About</a></li>
                     </ul>
                 </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 IntelliFood. Created with Good inteation for better food transaparncy.</p>
+                <div class="footer-info">
+                    <h4>Project Info</h4>
+                    <p>Built for Encode 2026 Hackathon</p>
+                    <p>Designing AI-Native Experiences</p>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IntelliFood. Created with ❤️ for better food transparency.</p>
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
 </body>
 </html>
